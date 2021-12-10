@@ -11,17 +11,19 @@ use File::Spec;
 use File::Temp qw(tempdir);
 use Test::More tests => 1;
 
+my $Is_MSWin32 = $^O eq 'MSWin32';
+
 my $source_dir = tempdir(CLEANUP => true);
 my $target_dir = tempdir(CLEANUP => true);
 
 my $sep = sub { [ split /\//, $_[0] ] };
 
 my @dirs = map $sep->($_), (
-    '.dot',
+    $Is_MSWin32 ? () : '.dot',
     'dir/subdir',
 );
 my @files = map $sep->($_), (
-    '.dot/.hidden',
+    $Is_MSWin32 ? () : '.dot/.hidden',
     'abc',
     'def',
     'ghi',
@@ -30,8 +32,8 @@ my @files = map $sep->($_), (
     'pqr',
 );
 my %expected = map { File::Spec->catfile($target_dir, @{$sep->($_)}) => true } (
-    'sub-.',
-    'sub-./.hidden',
+    $Is_MSWin32 ? () : 'sub-.',
+    $Is_MSWin32 ? () : 'sub-./.hidden',
     'sub-A',
     'sub-A/abc',
     'sub-D',
@@ -68,6 +70,8 @@ File::Find::find({
 }, $target_dir);
 
 shift @got; # remove top-level directory
+
+@got = map { s{/}{\\}g; $_ } @got if $Is_MSWin32;
 
 my %got = map { $_ => true } @got;
 

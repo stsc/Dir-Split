@@ -41,7 +41,7 @@
    "provides" : {
       "Dir::Split" : {
          "file" : "lib/Dir/Split.pm",
-         "version" : "0.80_01"
+         "version" : "0.80_02"
       }
    },
    "release_status" : "testing",
@@ -53,6 +53,6 @@
          "url" : "https://github.com/stsc/Dir-Split"
       }
    },
-   "version" : "0.80_01",
+   "version" : "0.80_02",
    "x_serialization_backend" : "JSON::PP version 4.04"
 }

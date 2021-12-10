@@ -64,6 +64,8 @@ File::Find::find({
 
 shift @got; # remove top-level directory
 
+@got = map { s{/}{\\}g; $_ } @got if $^O eq 'MSWin32';
+
 my %got = map { $_ => true } @got;
 
 is_deeply(\%got, \%expected, 'file tree');
