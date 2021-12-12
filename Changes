@@ -1,5 +1,9 @@
 Revision history for Perl extension Dir::Split.
 
+0.81  2021-12-12  <schubiger@cpan.org>
+
+ - Merged development version to stable.
+
 0.80_02  2021-12-10  <schubiger@cpan.org>
 
  - Fix MSWin32 test failures.

@@ -12,7 +12,7 @@ use File::Path ();
 use File::Spec ();
 use Params::Validate ':all';
 
-our $VERSION = '0.80_02';
+our $VERSION = '0.81';
 
 validation_options(
     on_fail => sub

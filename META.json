@@ -41,10 +41,10 @@
    "provides" : {
       "Dir::Split" : {
          "file" : "lib/Dir/Split.pm",
-         "version" : "0.80_02"
+         "version" : "0.81"
       }
    },
-   "release_status" : "testing",
+   "release_status" : "stable",
    "resources" : {
       "license" : [
          "http://dev.perl.org/licenses/"
@@ -53,6 +53,6 @@
          "url" : "https://github.com/stsc/Dir-Split"
       }
    },
-   "version" : "0.80_02",
+   "version" : "0.81",
    "x_serialization_backend" : "JSON::PP version 4.04"
 }
